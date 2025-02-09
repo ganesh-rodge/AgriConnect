@@ -1,21 +1,45 @@
 import React, { useState } from 'react';
-import { Sprout, User, Mail, Lock } from 'lucide-react';
-import LoginCrop from '../assets/LoginCrop.jpeg'
+import { Sprout, User, Mail, Lock, Phone } from 'lucide-react';
+import LoginCrop from '../assets/LoginCrop.jpeg';
+import { registerUser, sendOtp } from '../api';
 
 export default function SignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
-  const handleSendOTP = () => {
-    // Handle OTP sending logic here
-    console.log('Sending OTP to:', email);
+  // Send OTP
+  const handleSendOTP = async () => {
+    setMessage('');
+    try {
+      await sendOtp(mobileNumber);
+      setMessage('OTP sent successfully!');
+    } catch (error) {
+      setMessage('Failed to send OTP. Try again.');
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Register Agent
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', { name, email, otp });
+    setLoading(true);
+    setMessage('');
+
+    try {
+      const response = await registerUser(name, mobileNumber, email, otp);
+      if (response.status === 201) {
+        setMessage('Registration successful!');
+      } else {
+        setMessage('Registration failed. Please try again.');
+      }
+    } catch (error) {
+      setMessage('Error registering. Please check your details.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -23,11 +47,7 @@ export default function SignUp() {
       <div className="w-full max-w-6xl bg-white rounded-3xl overflow-hidden shadow-xl flex">
         {/* Left side - Image */}
         <div className="hidden md:block w-1/2">
-          <img
-            src={LoginCrop}
-            alt="Growing crops in field"
-            className="w-full h-full object-cover"
-          />
+          <img src={LoginCrop} alt="Growing crops in field" className="w-full h-full object-cover" />
         </div>
 
         {/* Right side - Sign Up Form */}
@@ -44,68 +64,68 @@ export default function SignUp() {
             <p className="text-gray-600">Create your account to get started</p>
           </div>
 
+          {message && <p className="text-center text-red-500">{message}</p>}
+
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative">
-              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                <User className="h-5 w-5 text-gray-400" />
-              </div>
+              <User className="absolute inset-y-0 left-3 top-3 h-5 w-5 text-gray-400" />
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border"
               />
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                <Mail className="h-5 w-5 text-gray-400" />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative">
+                <Phone className="absolute inset-y-0 left-3 top-3 h-5 w-5 text-gray-400" />
+                <input
+                  type="tel"
+                  value={mobileNumber}
+                  onChange={(e) => setMobileNumber(e.target.value)}
+                  placeholder="Mobile Number"
+                  className="w-full pl-10 pr-24 py-3 bg-gray-50 rounded-xl border"
+                />
+                <button
+                  type="button"
+                  onClick={handleSendOTP}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 text-white px-4 py-1.5 rounded-lg"
+                >
+                  Send OTP
+                </button>
               </div>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-                className="w-full pl-10 pr-24 py-3 bg-gray-50 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-              />
-              <button
-                type="button"
-                onClick={handleSendOTP}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 text-white px-4 py-1.5 rounded-lg hover:bg-blue-600 transition-colors text-sm font-medium"
-              >
-                Send OTP
-              </button>
+
+              <div className="relative">
+                <Mail className="absolute inset-y-0 left-3 top-4 h-5 w-5 text-gray-400" />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border"
+                />
+              </div>
             </div>
 
             <div className="relative">
-              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                <Lock className="h-5 w-5 text-gray-400" />
-              </div>
+              <Lock className="absolute inset-y-0 left-3 top-3 h-5 w-5 text-gray-400" />
               <input
                 type="text"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
                 placeholder="OTP"
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border"
               />
-            </div>
-
-            <div className="text-center">
-              <button
-                type="button"
-                onClick={handleSendOTP}
-                className="text-blue-500 hover:text-blue-600 text-sm font-medium"
-              >
-                Didn't get an OTP? Resend OTP
-              </button>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-3 rounded-xl hover:bg-blue-600 transition-colors font-medium"
+              className="w-full bg-blue-500 text-white py-3 rounded-xl hover:bg-blue-600 transition-colors"
+              disabled={loading}
             >
-              Submit
+              {loading ? 'Registering...' : 'Submit'}
             </button>
           </form>
         </div>

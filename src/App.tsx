@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
-import SignUp from './components/Signup';
+import Signup from './components/Signup'; // Create this component
+// import Dashboard from './components/Dashboard'; // Example dashboard
 
-function App() {
-  const [showSignUp, setShowSignUp] = useState(false);
-
-  return showSignUp ? <SignUp /> : <Login onSignUp={() => setShowSignUp(true)} />;
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+      </Routes>
+    </Router>
+  );
 }
-
-export default App;
