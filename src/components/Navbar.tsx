@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { api } from '../api';
 import {
   Sprout, Menu, X, User, Home, FileText, Scaling as Seedling,
-  ShoppingCart, Paperclip
+  ShoppingCart, Paperclip, 
   UserCircle, Notebook
 } from 'lucide-react';
 
