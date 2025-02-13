@@ -38,14 +38,15 @@ export function SoilAnalysisForm() {
     // Handle form submission logic here
   };
 
-  const handleLogout = () => {
-    console.log('Logging out...');
-    // Handle logout logic here
-  };
+  // const handleLogout = () => {
+  //   console.log('Logging out...');
+  //   // Handle logout logic here
+  // };
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
-      <Navbar onLogout={handleLogout} />
+      {/* <Navbar onLogout={handleLogout} /> */}
+      <Navbar  />
       
       <div className="flex-1">
         <div className="p-4 sm:p-6 lg:p-10 mx-auto">

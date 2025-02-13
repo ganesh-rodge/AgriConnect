@@ -17,10 +17,10 @@ export function CropOverview() {
     { crop: 'Barley', status: 'Healthy', date: '2023-09-15' },
   ];
 
-  const handleLogout = () => {
-    console.log('Logging out...');
-    // Handle logout logic here
-  };
+  // const handleLogout = () => {
+  //   console.log('Logging out...');
+  //   // Handle logout logic here
+  // };
 
   const handleAddCrop = () => {
     console.log('Adding new crop...');
