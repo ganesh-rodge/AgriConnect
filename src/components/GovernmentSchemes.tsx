@@ -110,10 +110,10 @@ export function GovernmentSchemes() {
     }
   ];
 
-  const handleLogout = () => {
-    console.log('Logging out...');
-    // Handle logout logic here
-  };
+//   const handleLogout = () => {
+//     console.log('Logging out...');
+//     // Handle logout logic here
+//   };
 
   const filteredSchemes = schemes.filter(scheme => {
     const matchesSearch = scheme.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -137,7 +137,7 @@ export function GovernmentSchemes() {
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      <Navbar onLogout={handleLogout} />
+      <Navbar  />
       
       <div className="flex-1 p-8">
         <div className="max-w-7xl mx-auto">
