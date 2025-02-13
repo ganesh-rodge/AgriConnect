@@ -21,7 +21,7 @@ const UserProfile = () => {
     taluka: 'Latur'
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -29,7 +29,7 @@ const UserProfile = () => {
     }));
   };
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = (e:any) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
