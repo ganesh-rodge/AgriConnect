@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import {Navbar} from './Navbar';
 import { Camera, Menu } from 'lucide-react';
 

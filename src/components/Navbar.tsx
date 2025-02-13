@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { api } from '../api';
 import {
   Sprout, Menu, X, User, Home, FileText, Scaling as Seedling,
   ShoppingCart, History,
-  UserCircle2,
   UserCircle
 } from 'lucide-react';
 
