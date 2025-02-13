@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { api } from '../api';
 import {
   Sprout, Menu, X, User, Home, FileText, Scaling as Seedling,
-  ShoppingCart, Paperclip, 
+  ShoppingCart, Pin, 
   UserCircle, Notebook
 } from 'lucide-react';
 
@@ -127,7 +127,7 @@ export function Navbar() {
                   location.pathname === '/bulletin' ? 'bg-green-200 text-green-800' : ''
                 }`}
               >
-                <Paperclip className="h-5 w-5" />
+                <Pin className="h-5 w-5" />
                 <span>Bulletin</span>
               </a>
             </li>
