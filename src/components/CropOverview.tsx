@@ -88,7 +88,7 @@ export function CropOverview() {
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="px-3 sm:px-4 py-2 sm:py-3 text-left text-sm sm:text-base text-gray-600">Crop</th>
-                    <th className="px-3 sm:px-4 py-2 sm:py-3 text-left text-sm sm:text-base text-gray-600">Status</th>
+                    <th className="px-3 sm:px-4 py-2 sm:py-3 text-center text-sm sm:text-base text-gray-600">Status</th>
                     <th className="px-3 sm:px-4 py-2 sm:py-3 text-left text-sm sm:text-base text-gray-600">Date</th>
                   </tr>
                 </thead>
