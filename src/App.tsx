@@ -6,6 +6,8 @@ import { SoilAnalysisForm } from './components/SoilAnalysisForm';
 import { CropOverview } from './components/CropOverview';
 import { AgricultureManagement } from './components/AgricultureManagement';
 import {Profile} from './components/Profile';
+// import { Bulletin } from './components/Bulletin';
+import { GovernmentSchemes } from './components/GovernmentSchemes';
 
 export default function App() {
   return (
@@ -16,7 +18,13 @@ export default function App() {
         <Route path="/soilanalysisform" element={<SoilAnalysisForm />} />
         <Route path="/agriculturemanagement" element={<AgricultureManagement />} />
         <Route path="/cropoverview" element={<CropOverview />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} /> 
+        {/* <Route path="/bulletin" element={<Bulletin />} />
+
+        {/* to be imported */}
+        
+        {/* <Route path="/marketview" element={<MarketView />} /> */}
+        <Route path="/schemes" element={<GovernmentSchemes />} />
       </Routes>
     </Router>
   );

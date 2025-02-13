@@ -4,7 +4,7 @@ import { api } from '../api';
 import {
   Sprout, Menu, X, User, Home, FileText, Scaling as Seedling,
   ShoppingCart, History,
-  UserCircle
+  UserCircle, Notebook
 } from 'lucide-react';
 
 export function Navbar() {
@@ -116,8 +116,19 @@ export function Navbar() {
                   location.pathname === '/schemas' ? 'bg-green-200 text-green-800' : ''
                 }`}
               >
-                <History className="h-5 w-5" />
+                <Notebook className="h-5 w-5" />
                 <span>Government Schemes</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="/bulletin" 
+                className={`flex items-center gap-3 px-2 py-2 text-gray-600 hover:bg-emerald-100 rounded-lg transition-colors ${
+                  location.pathname === '/bulletin' ? 'bg-green-200 text-green-800' : ''
+                }`}
+              >
+                <Notebook className="h-5 w-5" />
+                <span>Bulletin</span>
               </a>
             </li>
             <li>
