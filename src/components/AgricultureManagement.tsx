@@ -74,18 +74,13 @@ export function AgricultureManagement() {
     {label: 'Moisture Content', value: 'Adequate'}
   ]
 
-  const handleLogout = () => {
-    console.log('Logging out...');
-    // Handle logout logic here
-  };
-
   const cardClasses = "bg-white rounded-xl shadow-md p-4 lg:p-6 flex flex-col min-h-[200px]";
   const headerClasses = "text-lg lg:text-xl font-semibold text-gray-800 mb-4";
   const contentClasses = "flex-1 flex flex-col justify-between";
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
-      <Navbar onLogout={handleLogout} />
+      <Navbar  />
       
       <div className="flex-1 p-4 md:p-6 lg:p-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
