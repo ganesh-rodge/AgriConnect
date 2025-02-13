@@ -111,13 +111,13 @@ export function Navbar() {
             </li>
             <li>
               <a 
-                href="/history" 
+                href="/schemes" 
                 className={`flex items-center gap-3 px-2 py-2 text-gray-600 hover:bg-emerald-100 rounded-lg transition-colors ${
-                  location.pathname === '/history' ? 'bg-green-200 text-green-800' : ''
+                  location.pathname === '/schemas' ? 'bg-green-200 text-green-800' : ''
                 }`}
               >
                 <History className="h-5 w-5" />
-                <span>History</span>
+                <span>Government Schemes</span>
               </a>
             </li>
             <li>
