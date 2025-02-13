@@ -10,6 +10,8 @@ export default function SignUp() {
   const [mobileNumber, setMobileNumber] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [otpDisabled, setOtpDisabled] = useState(false);
+  const [timer, setTimer] = useState(30);
 
   // Send OTP
   const handleSendOTP = async () => {
@@ -17,6 +19,18 @@ export default function SignUp() {
     try {
       await sendOtp(mobileNumber);
       setMessage('OTP sent successfully!');
+      setOtpDisabled(true);
+      let countdown = 30;
+      setTimer(countdown);
+
+      const interval = setInterval(() => {
+        countdown -= 1;
+        setTimer(countdown);
+        if (countdown === 0) {
+          clearInterval(interval);
+          setOtpDisabled(false);
+        }
+      }, 1000);
     } catch (error) {
       setMessage('Failed to send OTP. Try again.');
     }
@@ -78,35 +92,43 @@ export default function SignUp() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
               <div className="relative">
                 <Phone className="absolute inset-y-0 left-3 top-3 h-5 w-5 text-gray-400" />
                 <input
                   type="tel"
                   value={mobileNumber}
                   onChange={(e) => setMobileNumber(e.target.value)}
-                  placeholder="Mobile Number"
-                  className="w-full pl-10 pr-24 py-3 bg-gray-50 rounded-xl border"
+                  placeholder="Mobile No."
+                  className="w-full pl-10 py-3 bg-gray-50 rounded-xl border"
                 />
+              </div>
+              
+              <div className="text-right">
                 <button
                   type="button"
                   onClick={handleSendOTP}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 text-white px-4 py-1.5 rounded-lg"
+                  disabled={otpDisabled}
+                  className={`text-sm sm:text-base font-medium transition-colors py-1 px-2 rounded-lg ${
+                    otpDisabled
+                      ? 'text-gray-400 cursor-not-allowed'
+                      : 'text-blue-500 hover:text-blue-600'
+                  }`}
                 >
-                  Send OTP
+                  {otpDisabled ? `Resend OTP in ${timer}s` : 'Send OTP'}
                 </button>
               </div>
+            </div>
 
-              <div className="relative">
-                <Mail className="absolute inset-y-0 left-3 top-4 h-5 w-5 text-gray-400" />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email"
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border"
-                />
-              </div>
+            <div className="relative">
+              <Mail className="absolute inset-y-0 left-3 top-3 h-5 w-5 text-gray-400" />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border"
+              />
             </div>
 
             <div className="relative">

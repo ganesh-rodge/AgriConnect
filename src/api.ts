@@ -20,6 +20,10 @@ export const loginUser = async (phone: string, otp: string, role: string) => {
 };
 
 
-export const registerUser = async (name: String, phone: string, mail: string, otp:string) =>{
-    return await api.post('/auth/register-agent', {name, phone, mail, otp});
+export const registerUser = async (name: String, phone: string, email: string, otp:string) =>{
+    return await api.post('/auth/register-agent', {name, phone, email, otp});
+}
+
+export const logout = async (message: string) => {
+  return await api.post('auth/logout', {message})
 }
