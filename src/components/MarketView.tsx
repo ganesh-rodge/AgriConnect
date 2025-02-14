@@ -22,22 +22,73 @@ export function MarketView() {
   const [selectedCrop, setSelectedCrop] = useState<string>('');
   const [selectedState, setSelectedState] = useState<string>('');
 
-  // ... (keeping all the existing data structures - categories, indianStates, marketData)
   const categories: CategoryData[] = [
     {
       name: 'Cereals and millets',
       crops: ['Wheat', 'Maize', 'Paddy', 'Pearl Millet', 'Barley', 'Oats', 'Ragi', 'Sorghum']
     },
-    // ... (rest of the categories)
+    {
+      name: 'Vegetables',
+      crops: ['Tomato', 'Potato', 'Onion', 'Cabbage', 'Cauliflower', 'Carrot', 'Spinach', 'Peas', 'Brinjal', 'Capsicum']
+    },
+    {
+      name: 'Fibres',
+      crops: ['Cotton', 'Jute', 'Hemp', 'Silk Cotton']
+    },
+    {
+      name: 'Oil crops',
+      crops: ['Groundnut', 'Mustard', 'Sunflower', 'Soybean', 'Sesame', 'Castor']
+    },
+    {
+      name: 'Pulses',
+      crops: ['Chickpea', 'Pigeon Pea', 'Green Gram', 'Black Gram', 'Lentil']
+    },
+    {
+      name: 'Spices',
+      crops: ['Turmeric', 'Chilli', 'Cardamom', 'Pepper', 'Coriander', 'Cumin']
+    },
+    {
+      name: 'Fruits',
+      crops: ['Mango', 'Banana', 'Apple', 'Orange', 'Grapes', 'Pomegranate']
+    },
+    {
+      name: 'Plantation',
+      crops: ['Coffee', 'Tea', 'Rubber', 'Coconut']
+    },
+    {
+      name: 'DryFruits',
+      crops: ['Almonds', 'Cashew', 'Walnut', 'Pistachio']
+    }
   ];
 
   const indianStates = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
-    // ... (rest of the states)
+    'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand',
+    'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur',
+    'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab',
+    'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura',
+    'Uttar Pradesh', 'Uttarakhand', 'West Bengal'
   ];
 
   const marketData: MarketData[] = [
-    // ... (all market data entries)
+    { id: '1', category: 'Cereals and millets', crop: 'Wheat', market: 'Delhi', state: 'Delhi', price: 2800, lastUpdated: '2024-02-15' },
+    { id: '2', category: 'Cereals and millets', crop: 'Maize', market: 'Indore', state: 'Madhya Pradesh', price: 2200, lastUpdated: '2024-02-14' },
+    { id: '3', category: 'Vegetables', crop: 'Tomato', market: 'Latur', state: 'Maharashtra', price: 3500, lastUpdated: '2024-02-16' },
+    { id: '4', category: 'Vegetables', crop: 'Potato', market: 'Agra', state: 'Uttar Pradesh', price: 1800, lastUpdated: '2024-02-13' },
+    { id: '5', category: 'Fibres', crop: 'Cotton', market: 'Nagpur', state: 'Maharashtra', price: 6500, lastUpdated: '2024-02-15' },
+    { id: '6', category: 'Fibres', crop: 'Jute', market: 'Kolkata', state: 'West Bengal', price: 4200, lastUpdated: '2024-02-14' },
+    { id: '7', category: 'Oil crops', crop: 'Groundnut', market: 'Rajkot', state: 'Gujarat', price: 7200, lastUpdated: '2024-02-12' },
+    { id: '8', category: 'Oil crops', crop: 'Soybean', market: 'Indore', state: 'Madhya Pradesh', price: 5000, lastUpdated: '2024-02-16' },
+    { id: '9', category: 'Pulses', crop: 'Chickpea', market: 'Bikaner', state: 'Rajasthan', price: 5400, lastUpdated: '2024-02-14' },
+    { id: '10', category: 'Pulses', crop: 'Green Gram', market: 'Hyderabad', state: 'Telangana', price: 6200, lastUpdated: '2024-02-13' },
+    { id: '11', category: 'Spices', crop: 'Turmeric', market: 'Erode', state: 'Tamil Nadu', price: 9600, lastUpdated: '2024-02-15' },
+    { id: '12', category: 'Spices', crop: 'Chilli', market: 'Guntur', state: 'Andhra Pradesh', price: 12000, lastUpdated: '2024-02-14' },
+    { id: '13', category: 'Fruits', crop: 'Mango', market: 'Ratnagiri', state: 'Maharashtra', price: 8500, lastUpdated: '2024-02-16' },
+    { id: '14', category: 'Fruits', crop: 'Apple', market: 'Shimla', state: 'Himachal Pradesh', price: 9000, lastUpdated: '2024-02-15' },
+    { id: '15', category: 'Plantation', crop: 'Coffee', market: 'Chikmagalur', state: 'Karnataka', price: 11000, lastUpdated: '2024-02-12' },
+    { id: '16', category: 'Plantation', crop: 'Tea', market: 'Darjeeling', state: 'West Bengal', price: 9500, lastUpdated: '2024-02-14' },
+    { id: '17', category: 'DryFruits', crop: 'Almonds', market: 'Srinagar', state: 'Jammu and Kashmir', price: 15000, lastUpdated: '2024-02-16' },
+    { id: '18', category: 'DryFruits', crop: 'Cashew', market: 'Goa', state: 'Goa', price: 14000, lastUpdated: '2024-02-15' }
   ];
 
   const availableCrops = useMemo(() => {
@@ -175,4 +226,4 @@ export function MarketView() {
       </div>
     </div>
   );
-}git 
+}
