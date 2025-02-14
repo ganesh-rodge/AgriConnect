@@ -194,7 +194,7 @@ export function GovernmentSchemes() {
       <div className="flex-1 p-4 lg:p-8 mt-16 lg:mt-0">
         <div className="max-w-7xl mx-auto">
           <div className="mb-6 lg:mb-8">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 lg:mb-4">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-700 mb-2 lg:mb-4">
               Government Schemes for Farmers
             </h1>
             <p className="text-sm lg:text-base text-gray-600">

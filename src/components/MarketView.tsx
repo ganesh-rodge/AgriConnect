@@ -114,7 +114,7 @@ export function MarketView() {
       <div className="flex-1 p-4 md:p-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-6 md:mb-8">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 md:mb-4">Market View Dashboard</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-green-700 mb-2 md:mb-4">Market View Dashboard</h1>
             <p className="text-sm md:text-base text-gray-600">Track current market prices and trends across India</p>
           </div>
 
