@@ -107,7 +107,62 @@ export function GovernmentSchemes() {
       lastDate: '2023-12-31',
       status: 'Expired',
       documentationUrl: 'https://soilhealth.dac.gov.in'
+    },
+    {
+      "id": "6",
+      "title": "Rashtriya Krishi Vikas Yojana",
+      "description": "Aims to promote holistic development in agriculture and allied sectors by providing financial assistance to states",
+      "eligibility": [
+        "All farmers and agricultural entrepreneurs",
+        "State governments submit project proposals",
+        "Beneficiaries as per state guidelines"
+      ],
+      "benefits": [
+        "Financial assistance for agriculture projects",
+        "Support for infrastructure development",
+        "Encouragement for innovation and technology adoption"
+      ],
+      "lastDate": "2025-03-31",
+      "status": "Active",
+      "documentationUrl": "https://rkvy.nic.in"
+    },
+    {
+      "id": "7",
+      "title": "National Agricultural Insurance Scheme (NAIS)",
+      "description": "Provided insurance coverage and financial support to farmers in case of crop failure due to natural calamities, pests, and diseases.",
+      "eligibility": [
+          "All farmers growing notified crops",
+          "Both loanee and non-loanee farmers were eligible",
+          "Enrollment through designated banks or insurance companies"
+      ],
+      "benefits": [
+          "Coverage against natural calamities",
+          "Financial assistance for crop loss",
+          "Low premium rates for different crops"
+      ],
+      "lastDate": "2016-03-31",
+      "status": "Expired",
+      "documentationUrl": "https://agricoop.nic.in"
+    },
+    {
+      "id": "8",
+      "title": "Six-Year Programme to Boost Pulses Production",
+      "description": "A government initiative to increase pulses production and reduce import dependency by ensuring procurement at guaranteed prices.",
+      "eligibility": [
+          "Registered farmers producing pulses",
+          "State agencies participating in procurement",
+          "Compliance with agricultural guidelines"
+      ],
+      "benefits": [
+          "Guaranteed procurement prices for pulses",
+          "Financial and infrastructural support",
+          "Reduced dependency on imports"
+      ],
+      "lastDate": "TBA",
+      "status": "Coming Soon",
+      "documentationUrl": "https://www.reuters.com/world/india/india-budget-india-unveils-long-term-programmes-boost-pulses-cotton-output-2025-02-01"
     }
+
   ];
 
   const filteredSchemes = schemes.filter(scheme => {
@@ -168,8 +223,8 @@ export function GovernmentSchemes() {
           {/* Schemes Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredSchemes.map((scheme) => (
-              <div key={scheme.id} className="bg-white rounded-xl shadow-md overflow-hidden">
-                <div className="p-6">
+              <div key={scheme.id} className="bg-white rounded-xl shadow-md overflow-hidden ">
+                <div className="p-6 h-full flex flex-col justify-between">
                   <div className="flex justify-between items-start mb-4">
                     <h2 className="text-xl font-semibold text-gray-800">{scheme.title}</h2>
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(scheme.status)}`}>
@@ -206,7 +261,7 @@ export function GovernmentSchemes() {
                     </ul>
                   </div>
 
-                  <div className="flex justify-between items-center mt-6">
+                  <div className="flex justify-between items-center mt-6 ">
                     <a
                       href={scheme.documentationUrl}
                       target="_blank"
