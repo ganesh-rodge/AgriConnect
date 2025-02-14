@@ -8,6 +8,7 @@ import { AgricultureManagement } from './components/AgricultureManagement';
 import {Profile} from './components/Profile';
 // import { Bulletin } from './components/Bulletin';
 import { GovernmentSchemes } from './components/GovernmentSchemes';
+import { MarketView } from './components/MarketView';
 
 export default function App() {
   return (
@@ -23,7 +24,7 @@ export default function App() {
 
         {/* to be imported */}
         
-        {/* <Route path="/marketview" element={<MarketView />} /> */}
+        <Route path="/marketview" element={<MarketView />} />
         <Route path="/schemes" element={<GovernmentSchemes />} />
       </Routes>
     </Router>
