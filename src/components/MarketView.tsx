@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Navbar } from './Navbar';
-import { Filter } from 'lucide-react';
+// import { Filter } from 'lucide-react';
 
 interface MarketData {
   id: string;
@@ -214,7 +214,7 @@ export function MarketView() {
 
             {filteredMarketData.length === 0 && (
               <div className="text-center py-8 md:py-12">
-                <Filter className="mx-auto h-8 w-8 md:h-12 md:w-12 text-gray-400" />
+                {/* <Filter className="mx-auto h-8 w-8 md:h-12 md:w-12 text-gray-400" /> */}
                 <h3 className="mt-2 text-sm font-medium text-gray-900">No results found</h3>
                 <p className="mt-1 text-xs md:text-sm text-gray-500">
                   Try adjusting your search filters to find what you're looking for.
