@@ -187,19 +187,19 @@ export function MarketView() {
               <table className="w-full">
                 <thead>
                   <tr className="bg-gray-50">
-                    <th className="px-4 md:px-6 py-3 text-left text-xs md:text-sm font-medium text-gray-500">Crop</th>
-                    <th className="px-4 md:px-6 py-3 text-left text-xs md:text-sm font-medium text-gray-500">Market</th>
-                    <th className="px-4 md:px-6 py-3 text-right text-xs md:text-sm font-medium text-gray-500">Price (₹/quintal)</th>
-                    <th className="px-4 md:px-6 py-3 text-right text-xs md:text-sm font-medium text-gray-500">Last Updated</th>
+                    <th className="px-3 md:px-6 py-3 text-left text-xs md:text-sm font-medium text-gray-500">Crop</th>
+                    <th className="px-3 md:px-6 py-3 text-left text-xs md:text-sm font-medium text-gray-500">Market</th>
+                    <th className="px-3 md:px-6 py-3 text-right text-xs md:text-sm font-medium text-gray-500">Price (₹/quintal)</th>
+                    <th className="px-3 md:px-6 py-3 text-right text-xs md:text-sm font-medium text-gray-500">Last Updated</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {filteredMarketData.map((item) => (
                     <tr key={item.id} className="hover:bg-gray-50">
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900">{item.crop}</td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900">{item.market}</td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900 text-right">₹{item.price.toLocaleString()}</td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-500 text-right">
+                      <td className="px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900">{item.crop}</td>
+                      <td className="px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900">{item.market}</td>
+                      <td className="px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900 text-right">₹{item.price.toLocaleString()}</td>
+                      <td className="px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-500 text-right">
                         {new Date(item.lastUpdated).toLocaleDateString('en-IN', {
                           year: 'numeric',
                           month: 'short',
