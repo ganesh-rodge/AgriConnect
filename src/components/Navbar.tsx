@@ -84,7 +84,7 @@ export function Navbar() {
                 }`}
               >
                 <FileText className="h-5 w-5" />
-                <span>Soil Analysis Form</span>
+                <span>Soil Analysis</span>
               </a>
             </li>
             <li>
