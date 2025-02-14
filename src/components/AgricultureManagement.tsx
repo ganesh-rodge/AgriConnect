@@ -48,9 +48,9 @@ export function AgricultureManagement() {
   ];
 
   const marketPrices: MarketPrice[] = [
-    { crop: 'Wheat', price: '$5.00/bushel' },
-    { crop: 'Corn', price: '$4.50/bushel' },
-    { crop: 'Rice', price: '$6.00/bushel' },
+    { crop: 'Wheat', price: '₹2340/quintal' },
+    { crop: 'Corn', price: '₹1500/quintal' },
+    { crop: 'Rice', price: '₹5600/quintal' },
   ];
 
   const farmingDetails: FarmingDetails[] = [
