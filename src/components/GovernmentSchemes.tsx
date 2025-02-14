@@ -16,7 +16,6 @@ interface Scheme {
 export function GovernmentSchemes() {
   const [searchQuery, setSearchQuery] = React.useState('');
   const [statusFilter, setStatusFilter] = React.useState<'all' | 'Active' | 'Coming Soon' | 'Expired'>('all');
-  const [isNavOpen, setIsNavOpen] = React.useState(false);
 
   const schemes: Scheme[] = [
     {
