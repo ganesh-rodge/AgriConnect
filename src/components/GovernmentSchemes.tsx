@@ -187,24 +187,9 @@ export function GovernmentSchemes() {
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-50">
-      {/* Mobile Navigation Toggle */}
-      <button
-        onClick={() => setIsNavOpen(!isNavOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-md"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
-      </button>
+      
 
-      {/* Navigation Sidebar */}
-      <div className={`
-        fixed inset-y-0 left-0 transform lg:relative lg:translate-x-0 transition duration-200 ease-in-out z-40
-        ${isNavOpen ? 'translate-x-0' : '-translate-x-full'}
-        lg:flex
-      `}>
         <Navbar />
-      </div>
 
       {/* Main Content */}
       <div className="flex-1 p-4 lg:p-8 mt-16 lg:mt-0">
